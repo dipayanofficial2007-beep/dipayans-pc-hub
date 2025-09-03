@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dipayan's PC Hub</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #0f172a;
+      color: #fff;
+      padding: 50px;
+    }
+    h1 {
+      color: #38bdf8;
+    }
+    #countdown {
+      font-size: 2em;
+      margin: 20px 0;
+      color: #facc15;
+    }
+    img {
+      max-width: 400px;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.5);
+    }
+    .pc-info {
+      margin-top: 30px;
+      font-size: 1.2em;
+      color: #d1d5db;
+    }
+  </style>
+</head>
+<body>
+  <h1>🚀 Dipayan's PC Hub is Launching Soon!</h1>
+  <div id="countdown"></div>
+  
+  <!-- PC Image -->
+  <img src="pc.jpg" alt="My PC"> <!-- Put your image in the same folder and name it pc.jpg -->
+
+  <!-- PC Build Info -->
+  <div class="pc-info">
+    <h2>My PC Build 🖥️</h2>
+    <p>AMD Ryzen 5 5600GT</p>
+    <p>8GB DDR4 3200MHz RAM</p>
+    <p>WD Green SSD 500GB + 500GB HDD</p>
+    <p>Gigabyte B450M K Motherboard</p>
+  </div>
+
+  <script>
+   
+    var launchDate = new Date("2025-09-23T08:30:00").getTime();
+
+    var x = setInterval(function() {
+      var now = new Date().getTime();
+      var distance = launchDate - now;
+
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML =
+        days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML = "🎉 We are live now!";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
